@@ -1,2 +1,2 @@
 # Unscramble_Computer_Science_Problems
-Analyzed and answered questions about the dataset and performed run time analysis, time-complexity.
+In this project, I deconstructed a series of open-ended problems into smaller components (e.g, inputs, outputs, series of functions) and completed five tasks based on a fabricated set of calls and texts exchanged during September 2016. Moreover, I used Python to analyze and answer questions about the texts and calls contained in the dataset. Lastly, I performed run time analysis of my solution and determine its efficiency, time-complexity.
