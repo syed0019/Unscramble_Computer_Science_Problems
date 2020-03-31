@@ -1,5 +1,6 @@
 """
 Read file into texts and calls.
+It's ok if you don't understand how to read files.
 """
 import csv
 
@@ -24,20 +25,30 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
-def possible_telemarketers(calling_records):
+def possible_telemarketers(calls_records, texts_records):
     calling_numbers = []
-    for call in calls:
+    for call in calls_records:
         calling_numbers.append(call[0:2][0])
+    unique_calling_numbers = set(calling_numbers)
+
+    receiving_numbers = []
+    for lst in calls_records:
+        receiving_numbers.append(lst[1])
+
+    texts_numbers = []
+    for lst in texts_records:
+        texts_numbers.append(lst[0])
+        texts_numbers.append(lst[1])
 
     telemarketer_numbers = []
-    for num in calling_numbers:
-        if num[:3] == '140':
-            telemarketer_numbers.append(num)
+    for num in unique_calling_numbers:
+        if num not in receiving_numbers:
+            if num not in texts_numbers:
+                telemarketer_numbers.append(num)
 
-    clean_list = sorted(set(telemarketer_numbers))
-
-    print('"These numbers could be telemarketers: "')
-    for num in clean_list:
+    sorted_list = sorted(telemarketer_numbers)
+    print('These numbers could be telemarketers:')
+    for num in sorted_list:
         print(num)
         
-possible_telemarketers(calls)
+possible_telemarketers(calls, texts)
