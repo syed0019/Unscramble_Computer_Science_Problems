@@ -1,5 +1,6 @@
 """
 Read file into texts and calls.
+It's ok if you don't understand how to read files
 """
 import csv
 with open('texts.csv', 'r') as f:
@@ -18,19 +19,23 @@ Print a message:
 "<telephone number> spent the longest time, <total time> seconds, on the phone during 
 September 2016.".
 """
-def max_duration(call_records):
-    
-    call_duration = []
-    for record in call_records:
-        call_duration.append(int(record[3]))
-    max_duration = max(call_duration)
-    return max_duration
+from operator import itemgetter
 
-def finding_tel_num(call_records):
-    max_time = str(max_duration(call_records))
-    for record in call_records:
-        if record[3] == max_time:
-            print('"{} & {} spent the longest time, {} seconds, on the phone during September 2016."'
-                  .format(record[0], record[1], record[3]))
+def number_with_max_duration(calls_records):
+    call_duration = 0
+    new_dict = {}
+
+    for lst in calls_records:
+        for n in lst[0:2]:
+            new_dict[n] = call_duration
+
+    for lst in calls_records:
+        for n in lst[0:2]:
+            if n in new_dict:
+                call_duration = int(lst[3])
+                new_dict[n] += call_duration
+
+    print('{} spent the longest time, {} seconds, on the phone during September 2016.'
+          .format(max(new_dict.items(), key=itemgetter(1))[0], max(new_dict.items(), key=itemgetter(1))[1]))
     
-finding_tel_num(calls)
+number_with_max_duration(calls)
