@@ -1,0 +1,53 @@
+
+Analysis of Algorithms using Big O Notation / Run-time Analysis:
+
+======================================================================================================================
+
+Task0.py :
+
+> The algorithm is Quadratic Time complexity because it needs to perform two squared times of input two operations
+  inside the for loops and 4 constant operations. Therefore, our notation is O(2n^2 + 6) simplified to O(n^2).
+
+Answer: O(n^2)
+
+======================================================================================================================
+
+Task1.py:
+
+> The algorithm is Linear Time complexity as it would perform one n time linear operation with two operations inside
+  the for loop alongwith 5 constant operations. Our notation is O(1n + 7) or simply O(n)
+
+Answer: O(n)
+
+======================================================================================================================
+
+Task2.py:
+
+> The algorithm is Quadratic Time Complexity as it will perform 2 squared times input plus 4 operations inside the
+  for loops and 4 constant operations. The Big O notation is O(2n^2 + 8) simplified to O(n^2).
+
+Answer: O(n^2)
+
+======================================================================================================================
+
+Task3.py:
+
+> The algorithm is Time Complexity of O(n log n) as it would perform 8 for loops alongwith 16 operations inside the
+  loops plus 16 constant operations and it also performs a sort operation, there our Big O notation might look like
+  perform a sort operation. So our Big O notation might look like
+  O(4n + 2n^2 + 32) + O(n log n) simplified to O(n log n).
+ 
+
+Answer: O(n log n)
+
+======================================================================================================================
+
+Task4.py:
+
+> The algorithm is Linearithmic (a combination of ‘linear’ and ‘logarithmic’) Time Complexity because it would
+  perform 5 loops, 15 operations and one python sort operation.Therefore, our Big O notation might look
+  like O(4n + 15) + O (n log n) simplified to O(n log n).
+
+
+Answer: O(n log n)
+======================================================================================================================
