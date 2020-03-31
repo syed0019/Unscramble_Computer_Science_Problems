@@ -1,5 +1,6 @@
 """
 Read file into texts and calls.
+It's ok if you don't understand how to read files.
 """
 import csv
 
@@ -47,7 +48,7 @@ def list_of_codes(calls_records):
     # creating lists of calling and receiving numbers
     calling_numbers = []
     receiving_numbers = []
-    for call in calls:
+    for call in calls_records:
         calling_numbers.append(call[0:2][0])
         receiving_numbers.append(call[0:2][1])
     
@@ -60,33 +61,41 @@ def list_of_codes(calls_records):
             
     global new_list
     new_list = []
-    for record in calls:
+    for record in calls_records:
         for num in fixed_line_num:
             if num in record[0]:
                 new_list.append(record[1])
     
     codes = []
     for num in new_list:
-        if num[0] == '(':
-            codes.append(num[1:4])
+        if num[:1] == '(':
+            codes.append(num.split(sep=')')[0] + ')')
         else:
             codes.append(num[:4])
     clean_list = sorted(list(set(codes)))
     
-    print('"The numbers called by people in Bangalore have codes:"')
+    print('The numbers called by people in Bangalore have codes:')
     for code in clean_list:
         print(code)
 
 def percentage_of_fixed_calls():
     count_fixed_calling_numbers = len(fixed_line_num)
     
-    count_fixed_receiving_numbers = 0
-    for num in new_list:
-        if num[0:5] == '(080)':
-            count_fixed_receiving_numbers += 1
-    percentage = (count_fixed_calling_numbers / count_fixed_receiving_numbers) * 100
-    print('"{:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore."'
-          .format(percentage))
+    total_receiving_num = []
+    for record in calls:
+        unique_fixed_num = set(fixed_line_num)
+        for num in unique_fixed_num:
+            if num in record[0]:
+                total_receiving_num.append(record[1])
+
+    bangalore_receiving_num = []
+    for n in total_receiving_num:
+        if n[0:5] == '(080)':
+            bangalore_receiving_num.append(n)
+    bangalore_receiving_num_count = len(bangalore_receiving_num)
+    percentage = (bangalore_receiving_num_count / count_fixed_calling_numbers) * 100
+    print('{:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.'
+          .format(percentage))        
 
 list_of_codes(calls)
 percentage_of_fixed_calls()
