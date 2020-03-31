@@ -1,5 +1,6 @@
 """
 Read file into texts and calls.
+It's ok if you don't understand how to read files.
 """
 import csv
 with open('texts.csv', 'r') as f:
@@ -25,7 +26,7 @@ def first_text_record(lists_of_texts):
         for item in list_:
             new_list.append(item)
     
-    print('"First record of texts, {} texts {} at time {}"'
+    print('First record of texts, {} texts {} at time {}'
           .format(new_list[0], new_list[1], new_list[2]))
 
 def last_call_record(lists_of_calls):
@@ -34,7 +35,7 @@ def last_call_record(lists_of_calls):
         for item in list_:
             new_list.append(item)
     
-    print('"Last record of calls, {} calls {} at time {}, lasting {} seconds"'
+    print('Last record of calls, {} calls {} at time {}, lasting {} seconds'
           .format(new_list[-4], new_list[-3], new_list[-2], new_list[-1]))
     
 
