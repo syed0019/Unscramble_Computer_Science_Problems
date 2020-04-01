@@ -32,22 +32,20 @@ Answer: O(n^2)
 
 Task3.py:
 
-> The algorithm is Time Complexity of O(n log n) as it would perform 8 for loops alongwith 16 operations inside the
-  loops plus 16 constant operations and it also performs a sort operation, there our Big O notation might look like
-  perform a sort operation. So our Big O notation might look like
-  O(4n + 2n^2 + 32) + O(n log n) simplified to O(n log n).
+> The algorithm is Quadratic Time Complexity as it would perform 8 for loops alongwith 16 operations inside the
+  loops plus 16 constant operations and it also performs a sort operation, so our Big O notation might look like
+  O(4n + 2n^2 + 32) simplified to O(n^2).
  
 
-Answer: O(n log n)
+Answer: O(n^2)
 
 ======================================================================================================================
 
 Task4.py:
 
-> The algorithm is Linearithmic (a combination of ‘linear’ and ‘logarithmic’) Time Complexity because it would
-  perform 5 loops, 15 operations and one python sort operation.Therefore, our Big O notation might look
-  like O(4n + 15) + O (n log n) simplified to O(n log n).
+> The algorithm is Quadratic Time Complexity because it would perform 5 loops, 15 operations and one python sort
+  operation.Therefore, our Big O notation might look like O(4n + 15) simplified to O(n^2).
 
 
-Answer: O(n log n)
+Answer: O(n^2)
 ======================================================================================================================
